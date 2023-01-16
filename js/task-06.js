@@ -1,17 +1,14 @@
-const input = document.getElementById("validation-input");
-const inputLength = input.getAttribute("data-length");
+const input = document.querySelector("#validation-input");
+const inputLength = Number(input.dataset.length);
 
-input.addEventListener("blur", onInputFocus);
+input.addEventListener("blur", onInputText);
 
-function onInputFocus(event) {
-  if (input.value.length === inputLength) {
-    input.style.borderColor = "#4caf50";
-  } else if (
-    input.value.length > inputLength ||
-    input.value.length < inputLength
-  ) {
-    input.style.borderColor = "#f44336";
+function onInputText(event) {
+  if (event.currentTarget.value.trim().length === inputLength) {
+    input.classList.add("valid");
+    input.classList.remove("invalid");
   } else {
-    input.style.borderColor = "bdbdbd";
+    input.classList.add("invalid");
+    input.classList.remove("valid");
   }
 }

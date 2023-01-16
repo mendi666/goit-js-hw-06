@@ -14,7 +14,12 @@ function onFormSubmit(event) {
     return alert(message);
   }
 
-  console.log({ email: email.value, password: password.value });
+  const valuesObject = {
+    email: email.value,
+    password: password.value,
+  };
+
+  console.log(valuesObject);
 
   event.currentTarget.reset();
 }
